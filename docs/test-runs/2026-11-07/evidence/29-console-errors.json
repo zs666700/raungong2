@@ -1,0 +1,29 @@
+{
+  "consoleErrors": [
+    {
+      "label": "case7-B",
+      "text": "Failed to load resource: the server responded with a status of 409 (Conflict)"
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [
+    {
+      "label": "case7-A",
+      "url": "http://127.0.0.1:8082/api/v1/plans?page=1&page_size=20",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "label": "case7-A",
+      "url": "http://127.0.0.1:8082/healthz",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "label": "case7-A",
+      "url": "http://127.0.0.1:5173/favicon.svg",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    }
+  ]
+}

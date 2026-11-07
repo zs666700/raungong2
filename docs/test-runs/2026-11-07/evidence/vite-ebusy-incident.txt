@@ -1,0 +1,20 @@
+第二轮第一次执行时，Vite 进程在用例 8 下载文件时退出。
+
+原始控制台错误（当时 Vite 进程 stderr）：
+
+Error: EBUSY: resource busy or locked, watch 'D:\code\raungong2\docs\test-runs\2026-11-07\evidence\08-export.md'
+    at FSWatcher.<computed> (node:internal/fs/watchers:321:19)
+    at Object.watch (node:fs:2548:36)
+    ...
+errno: -4082,
+syscall: 'watch',
+code: 'EBUSY',
+path: 'D:\\code\\raungong2\\docs\\test-runs\\2026-11-07\\evidence\\08-export.md'
+
+原因：Vite 监听整个项目根目录；Playwright 的 download.saveAs 正在写 evidence/08-export.md，
+Windows 上 Vite 的 fs.watch 对该文件报 EBUSY，进程退出。
+影响：当次用例 9/10 因 5173 连接被拒而 FAIL；重启 Vite 后，把下载/PDF 先写入系统临时目录
+再复制到 evidence，重跑用例 7–10 全部 PASS。
+
+说明：原 vite.log 在重启时被覆盖（启动命令使用了 > vite.log）；本文件按当时工具输出记录，
+不是伪造的原始日志。原始的下游错误可在 evidence/round2-console.log 中看到 ERR_CONNECTION_REFUSED。

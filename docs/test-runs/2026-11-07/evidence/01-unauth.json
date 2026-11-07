@@ -1,0 +1,16 @@
+{
+  "apiGetPlans": {
+    "status": 401,
+    "body": "{\"detail\":\"登录状态已失效，请重新登录\"}"
+  },
+  "apiGetPlanDetail": {
+    "status": 401,
+    "body": "{\"detail\":\"登录状态已失效，请重新登录\"}"
+  },
+  "browserPlansRedirect": "http://127.0.0.1:5173/login?redirect=/",
+  "browserPlansAfterLogin": "http://127.0.0.1:5173/",
+  "browserDetailRedirect": "http://127.0.0.1:5173/login?redirect=/plans/7bdb54c9-e27a-4af6-aa9c-7158eefce13a",
+  "browserDetailAfterLogin": "http://127.0.0.1:5173/plans/7bdb54c9-e27a-4af6-aa9c-7158eefce13a",
+  "detailTitleAfterLogin": "2026 级迎新晚会活动方案",
+  "expiredTokenRedirect": "http://127.0.0.1:5173/login?redirect=%2F&expired=1"
+}

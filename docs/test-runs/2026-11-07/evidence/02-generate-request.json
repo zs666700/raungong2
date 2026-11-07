@@ -1,0 +1,38 @@
+{
+  "requestedAt": "2026-11-07T06:15:05.064Z",
+  "startsAtFieldShown": "2026.11.14 19:00",
+  "requestHeaders": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "<redacted>",
+    "content-type": "application/json",
+    "idempotency-key": "caa883c2-483a-466c-b9fe-7be82c663818",
+    "origin": "http://127.0.0.1:5173",
+    "referer": "http://127.0.0.1:5173/",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"Microsoft Edge\";v=\"156\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\""
+  },
+  "requestBody": {
+    "theme": "迎新晚会",
+    "activity_type": "welcome_party",
+    "participants": 100,
+    "budget_yuan": 2000,
+    "starts_at": "2026-11-14T11:00:00.000Z",
+    "duration_minutes": 120,
+    "location": "学校礼堂",
+    "tone": "lively",
+    "target_audience": "2026 级新生"
+  },
+  "hasTemplateId": false,
+  "responseStatus": 202,
+  "responseBody": {
+    "task_id": "8a11bec0-329b-4cd0-b206-d0245985641f",
+    "plan_id": "2c04ddd8-23d4-4c21-b9ad-80654ce28986",
+    "status": "queued",
+    "reused": false,
+    "estimated_seconds": 3,
+    "poll_after_ms": 1000,
+    "poll_url": "/api/v1/tasks/8a11bec0-329b-4cd0-b206-d0245985641f"
+  }
+}

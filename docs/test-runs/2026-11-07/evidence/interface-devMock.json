@@ -1,0 +1,515 @@
+{
+  "generatedAt": "2026-11-07T06:28:10.836Z",
+  "base": "http://127.0.0.1:8082",
+  "evidence": {
+    "T01": {
+      "username": "t01_w60uz8239",
+      "firstRegister": {
+        "status": 201,
+        "body": {
+          "access_token": "<redacted>",
+          "token_type": "bearer",
+          "expires_in": 604800,
+          "user": {
+            "id": "f4ad99c0-3cba-458c-9371-c8878fcf5083",
+            "username": "t01_w60uz8239",
+            "display_name": "接口测试",
+            "role": "user",
+            "created_at": "2026-11-07T14:28:07"
+          }
+        }
+      },
+      "duplicateRegister": {
+        "status": 409,
+        "body": {
+          "detail": "用户名已存在"
+        },
+        "text": "{\"detail\":\"用户名已存在\"}"
+      },
+      "expectedCode": "USERNAME_TAKEN",
+      "actualHasCode": false
+    },
+    "T02": {
+      "wrongPassword": {
+        "status": 401,
+        "body": {
+          "detail": "用户名或密码错误"
+        }
+      },
+      "unknownUser": {
+        "status": 401,
+        "body": {
+          "detail": "用户名或密码错误"
+        }
+      },
+      "sameMessage": true
+    },
+    "T04": {
+      "userA": "t04a_w60uz8232",
+      "userB": "t04b_w60uz8240",
+      "aPlanId": "a29a41f5-23a0-46a2-bc59-761ff0ada01e",
+      "aTaskId": "26b671c3-7c81-412f-8ecf-f07aab23ef65",
+      "bReadPlan": {
+        "status": 404,
+        "body": {
+          "detail": "方案不存在"
+        }
+      },
+      "bReadTask": {
+        "status": 404,
+        "body": {
+          "detail": "任务不存在"
+        }
+      },
+      "bList": {
+        "status": 200,
+        "total": 0,
+        "items": 0
+      }
+    },
+    "T07": {
+      "sameKey": {
+        "first": {
+          "status": 202,
+          "body": {
+            "task_id": "19033d11-a34d-4a61-bf05-39e8cb280f44",
+            "plan_id": "38d6615a-54aa-401a-a938-a21c898d294f",
+            "status": "queued",
+            "reused": false,
+            "estimated_seconds": 3,
+            "poll_after_ms": 1000,
+            "poll_url": "/api/v1/tasks/19033d11-a34d-4a61-bf05-39e8cb280f44"
+          }
+        },
+        "second": {
+          "status": 202,
+          "body": {
+            "task_id": "19033d11-a34d-4a61-bf05-39e8cb280f44",
+            "plan_id": "38d6615a-54aa-401a-a938-a21c898d294f",
+            "status": "queued",
+            "reused": true,
+            "estimated_seconds": 3,
+            "poll_after_ms": 1000,
+            "poll_url": "/api/v1/tasks/19033d11-a34d-4a61-bf05-39e8cb280f44"
+          }
+        },
+        "sameTaskId": true,
+        "samePlanId": true,
+        "listTotal": 1
+      },
+      "newKey": {
+        "status": 202,
+        "body": {
+          "task_id": "727b7cec-68db-4b2d-ada5-8cacbf22e82a",
+          "plan_id": "98ecb3d5-8e60-4b84-8e97-6a695dc4753f",
+          "status": "queued",
+          "reused": false,
+          "estimated_seconds": 3,
+          "poll_after_ms": 1000,
+          "poll_url": "/api/v1/tasks/727b7cec-68db-4b2d-ada5-8cacbf22e82a"
+        },
+        "differentTask": true,
+        "listTotal": 2
+      }
+    },
+    "T10": {
+      "readyTaskStatus": "succeeded",
+      "beforeVersion": 1,
+      "submittedItem": {
+        "quantity": 5,
+        "unit_price_yuan": 30,
+        "subtotal_yuan": 200
+      },
+      "responseStatus": 200,
+      "responseVersion": 2,
+      "responseItem0Subtotal": 150,
+      "persistedSubtotal": 150,
+      "assertion": "服务端返回 150 时页面显示 150，前端不得用 30×5 覆盖",
+      "uiBindingEvidence": "用例 5 已证明非编辑态表格直接渲染 item.subtotal_yuan（MaterialsSection.vue:102）"
+    },
+    "T14": {
+      "status": 200,
+      "contentType": "text/markdown; charset=utf-8",
+      "contentDisposition": "attachment; filename=\"activity-mind-plan.md\"; filename*=UTF-8''%E5%B9%82%E7%AD%89%E9%94%AE%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88%E6%B4%BB%E5%8A%A8%E6%96%B9%E6%A1%88.md",
+      "decodedFilename": "幂等键测试方案活动方案.md",
+      "headings": [
+        "一、活动概览",
+        "二、筹备阶段",
+        "三、当晚流程",
+        "四、预算",
+        "五、物资清单",
+        "六、任务分工",
+        "七、宣传方案",
+        "八、风险与复盘",
+        "一、基本信息",
+        "二、目标回顾",
+        "三、做得好",
+        "四、待改进",
+        "五、下次行动",
+        "附：前提假设"
+      ],
+      "headingCount": 14,
+      "hasSixParts": true,
+      "hasReplacementChar": false
+    },
+    "T15": {
+      "status": 400,
+      "body": "{\"detail\":\"目前只支持 markdown\"}",
+      "expectedStatus": 501,
+      "expectedCode": "PDF_NOT_ENABLED",
+      "readme": "L116/L177：服务端 PDF 未实现；当前后端没有 PDF 接口"
+    },
+    "T16": {
+      "status": 200,
+      "pagination": {
+        "page": 1,
+        "page_size": 1,
+        "total": 2,
+        "total_pages": 2,
+        "has_more": true
+      },
+      "itemCount": 1,
+      "itemKeys": [
+        "id",
+        "title",
+        "theme",
+        "activity_type",
+        "participants",
+        "budget_yuan",
+        "starts_at",
+        "location",
+        "status",
+        "degraded",
+        "version",
+        "summary",
+        "created_at",
+        "updated_at"
+      ],
+      "hasContentJson": false,
+      "bListTotal": 0
+    },
+    "T17_18_devmock": {
+      "T17": {
+        "status": 404,
+        "body": {
+          "detail": "接口不存在"
+        },
+        "note": "devmock 未实现 duplicate 路由"
+      },
+      "T18": {
+        "status": 404,
+        "body": {
+          "detail": "接口不存在"
+        },
+        "note": "devmock 未实现 DELETE 路由"
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "T01",
+      "source": "16.2",
+      "steps": "同一用户名连续注册两次",
+      "expected": "409 USERNAME_TAKEN",
+      "actual": "status=409；body={\"detail\":\"用户名已存在\"}；结构化错误码=无",
+      "status": "FAIL",
+      "evidence": "evidence/interface-devMock.json#T01",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "username": "t01_w60uz8239",
+        "firstRegister": {
+          "status": 201,
+          "body": {
+            "access_token": "<redacted>",
+            "token_type": "bearer",
+            "expires_in": 604800,
+            "user": {
+              "id": "f4ad99c0-3cba-458c-9371-c8878fcf5083",
+              "username": "t01_w60uz8239",
+              "display_name": "接口测试",
+              "role": "user",
+              "created_at": "2026-11-07T14:28:07"
+            }
+          }
+        },
+        "duplicateRegister": {
+          "status": 409,
+          "body": {
+            "detail": "用户名已存在"
+          },
+          "text": "{\"detail\":\"用户名已存在\"}"
+        },
+        "expectedCode": "USERNAME_TAKEN",
+        "actualHasCode": false
+      }
+    },
+    {
+      "id": "T02",
+      "source": "16.2",
+      "steps": "已存在账号输入错误密码；不存在账号登录",
+      "expected": "均 401，且不提示账号是否存在",
+      "actual": "错误密码=401「用户名或密码错误」；不存在账号=401「用户名或密码错误」；文案相同=true",
+      "status": "PASS",
+      "evidence": "evidence/interface-devMock.json#T02",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "wrongPassword": {
+          "status": 401,
+          "body": {
+            "detail": "用户名或密码错误"
+          }
+        },
+        "unknownUser": {
+          "status": 401,
+          "body": {
+            "detail": "用户名或密码错误"
+          }
+        },
+        "sameMessage": true
+      }
+    },
+    {
+      "id": "T04",
+      "source": "16.2",
+      "steps": "用户 A 创建方案；用户 B 用自己的 token 读取 A 的方案和任务；B 看列表",
+      "expected": "方案与任务均 404，B 列表为空",
+      "actual": "B 读方案=404；B 读任务=404；B 列表 total=0",
+      "status": "PASS",
+      "evidence": "evidence/interface-devMock.json#T04",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "userA": "t04a_w60uz8232",
+        "userB": "t04b_w60uz8240",
+        "aPlanId": "a29a41f5-23a0-46a2-bc59-761ff0ada01e",
+        "aTaskId": "26b671c3-7c81-412f-8ecf-f07aab23ef65",
+        "bReadPlan": {
+          "status": 404,
+          "body": {
+            "detail": "方案不存在"
+          }
+        },
+        "bReadTask": {
+          "status": 404,
+          "body": {
+            "detail": "任务不存在"
+          }
+        },
+        "bList": {
+          "status": 200,
+          "total": 0,
+          "items": 0
+        }
+      }
+    },
+    {
+      "id": "T07",
+      "source": "16.2",
+      "steps": "相同 payload + 相同 Idempotency-Key 连续提交两次；再用新 Key 提交一次",
+      "expected": "同 key 返回同一 task_id/plan_id 且只一条；新 key 产生新 task/plan",
+      "actual": "同 key：202，同 task=true，同 plan=true，列表 total=1；新 key：202，新 task=true，列表 total=2",
+      "status": "PASS",
+      "evidence": "evidence/interface-devMock.json#T07",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "sameKey": {
+          "first": {
+            "status": 202,
+            "body": {
+              "task_id": "19033d11-a34d-4a61-bf05-39e8cb280f44",
+              "plan_id": "38d6615a-54aa-401a-a938-a21c898d294f",
+              "status": "queued",
+              "reused": false,
+              "estimated_seconds": 3,
+              "poll_after_ms": 1000,
+              "poll_url": "/api/v1/tasks/19033d11-a34d-4a61-bf05-39e8cb280f44"
+            }
+          },
+          "second": {
+            "status": 202,
+            "body": {
+              "task_id": "19033d11-a34d-4a61-bf05-39e8cb280f44",
+              "plan_id": "38d6615a-54aa-401a-a938-a21c898d294f",
+              "status": "queued",
+              "reused": true,
+              "estimated_seconds": 3,
+              "poll_after_ms": 1000,
+              "poll_url": "/api/v1/tasks/19033d11-a34d-4a61-bf05-39e8cb280f44"
+            }
+          },
+          "sameTaskId": true,
+          "samePlanId": true,
+          "listTotal": 1
+        },
+        "newKey": {
+          "status": 202,
+          "body": {
+            "task_id": "727b7cec-68db-4b2d-ada5-8cacbf22e82a",
+            "plan_id": "98ecb3d5-8e60-4b84-8e97-6a695dc4753f",
+            "status": "queued",
+            "reused": false,
+            "estimated_seconds": 3,
+            "poll_after_ms": 1000,
+            "poll_url": "/api/v1/tasks/727b7cec-68db-4b2d-ada5-8cacbf22e82a"
+          },
+          "differentTask": true,
+          "listTotal": 2
+        }
+      },
+      "note": "同一次提交在网络层重试时复用 key；用户再次点击是新的 key，会得到新 task/plan，属预期。"
+    },
+    {
+      "id": "T10",
+      "source": "16.2",
+      "steps": "PATCH materials，第一项数量 5、单价 30、模型写小计 200；读取响应与详情",
+      "expected": "服务端改为 150（断言：服务端返回 150 时页面显示 150，前端不得用 30×5 覆盖）",
+      "actual": "PATCH=200；响应小计=150；详情小计=150；版本 1->2",
+      "status": "PASS",
+      "evidence": "evidence/interface-devMock.json#T10",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "readyTaskStatus": "succeeded",
+        "beforeVersion": 1,
+        "submittedItem": {
+          "quantity": 5,
+          "unit_price_yuan": 30,
+          "subtotal_yuan": 200
+        },
+        "responseStatus": 200,
+        "responseVersion": 2,
+        "responseItem0Subtotal": 150,
+        "persistedSubtotal": 150,
+        "assertion": "服务端返回 150 时页面显示 150，前端不得用 30×5 覆盖",
+        "uiBindingEvidence": "用例 5 已证明非编辑态表格直接渲染 item.subtotal_yuan（MaterialsSection.vue:102）"
+      }
+    },
+    {
+      "id": "T14",
+      "source": "16.2",
+      "steps": "GET /plans/{id}/export?format=markdown",
+      "expected": "200，text/markdown，含 6 个部分（实际 Markdown 标题更多）；中文文件名",
+      "actual": "status=200；content-type=text/markdown; charset=utf-8；filename=幂等键测试方案活动方案.md；标题数=14；六部分关键词=true",
+      "status": "PASS",
+      "evidence": "evidence/interface-devMock.json#T14",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "status": 200,
+        "contentType": "text/markdown; charset=utf-8",
+        "contentDisposition": "attachment; filename=\"activity-mind-plan.md\"; filename*=UTF-8''%E5%B9%82%E7%AD%89%E9%94%AE%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88%E6%B4%BB%E5%8A%A8%E6%96%B9%E6%A1%88.md",
+        "decodedFilename": "幂等键测试方案活动方案.md",
+        "headings": [
+          "一、活动概览",
+          "二、筹备阶段",
+          "三、当晚流程",
+          "四、预算",
+          "五、物资清单",
+          "六、任务分工",
+          "七、宣传方案",
+          "八、风险与复盘",
+          "一、基本信息",
+          "二、目标回顾",
+          "三、做得好",
+          "四、待改进",
+          "五、下次行动",
+          "附：前提假设"
+        ],
+        "headingCount": 14,
+        "hasSixParts": true,
+        "hasReplacementChar": false
+      }
+    },
+    {
+      "id": "T15",
+      "source": "16.2",
+      "steps": "GET /plans/{id}/export?format=pdf",
+      "expected": "501 PDF_NOT_ENABLED（README 已标注服务端 PDF 未实现）",
+      "actual": "实际 status=400，body={\"detail\":\"目前只支持 markdown\"}；未返回 501/PDF_NOT_ENABLED",
+      "status": "FAIL",
+      "evidence": "evidence/interface-devMock.json#T15",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "status": 400,
+        "body": "{\"detail\":\"目前只支持 markdown\"}",
+        "expectedStatus": 501,
+        "expectedCode": "PDF_NOT_ENABLED",
+        "readme": "L116/L177：服务端 PDF 未实现；当前后端没有 PDF 接口"
+      },
+      "knownGap": true,
+      "note": "按 README 属未实现功能，不计前端缺陷；接口预期 501 未实现。"
+    },
+    {
+      "id": "T16",
+      "source": "16.2",
+      "steps": "GET /plans?page=1&page_size=1；检查分页、content_json 与跨用户隔离",
+      "expected": "只返回自己的方案；不含 content_json；分页字段正确",
+      "actual": "status=200；total=2；page_items=1；has_content_json=false；B 列表 total=0",
+      "status": "PASS",
+      "evidence": "evidence/interface-devMock.json#T16",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "status": 200,
+        "pagination": {
+          "page": 1,
+          "page_size": 1,
+          "total": 2,
+          "total_pages": 2,
+          "has_more": true
+        },
+        "itemCount": 1,
+        "itemKeys": [
+          "id",
+          "title",
+          "theme",
+          "activity_type",
+          "participants",
+          "budget_yuan",
+          "starts_at",
+          "location",
+          "status",
+          "degraded",
+          "version",
+          "summary",
+          "created_at",
+          "updated_at"
+        ],
+        "hasContentJson": false,
+        "bListTotal": 0
+      }
+    },
+    {
+      "id": "T17",
+      "source": "16.2",
+      "steps": "devmock：POST /plans/{id}/duplicate",
+      "expected": "新 ID，原方案不变",
+      "actual": "devmock 返回 404「接口不存在」；无路由，无法在 devmock 执行",
+      "status": "BLOCK",
+      "evidence": "evidence/interface-devMock.json#T17_18_devmock",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "status": 404,
+        "body": {
+          "detail": "接口不存在"
+        },
+        "note": "devmock 未实现 duplicate 路由"
+      },
+      "note": "改用 8083 临时真实后端补测。"
+    },
+    {
+      "id": "T18",
+      "source": "16.2",
+      "steps": "devmock：DELETE /plans/{id}",
+      "expected": "204；再查询 404，列表不出现",
+      "actual": "devmock 返回 404「接口不存在」；无路由，无法在 devmock 执行",
+      "status": "BLOCK",
+      "evidence": "evidence/interface-devMock.json#T17_18_devmock",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "status": 404,
+        "body": {
+          "detail": "接口不存在"
+        },
+        "note": "devmock 未实现 DELETE 路由"
+      },
+      "note": "改用 8083 临时真实后端补测。"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "caseStartedAt": "2026-11-07T06:27:01.591Z",
+  "planId": "7fe0691d-d0dc-42c9-8e03-4c2ef703b04f",
+  "planTitle": "409 冲突用例 804624活动方案",
+  "response": {
+    "status": 200,
+    "contentType": "text/markdown; charset=utf-8",
+    "contentDisposition": "attachment; filename=\"activity-mind-plan.md\"; filename*=UTF-8''409%20%E5%86%B2%E7%AA%81%E7%94%A8%E4%BE%8B%20804624%E6%B4%BB%E5%8A%A8%E6%96%B9%E6%A1%88.md"
+  },
+  "suggestedFilename": "409 冲突用例 804624活动方案.md",
+  "savedTo": "evidence/08-export.md",
+  "byteLength": 12643,
+  "headings": [
+    "一、活动概览",
+    "二、筹备阶段",
+    "三、当晚流程",
+    "四、预算",
+    "五、物资清单",
+    "六、任务分工",
+    "七、宣传方案",
+    "八、风险与复盘",
+    "一、基本信息",
+    "二、目标回顾",
+    "三、做得好",
+    "四、待改进",
+    "五、下次行动",
+    "附：前提假设"
+  ],
+  "requiredPhrases": [
+    "活动概览",
+    "物资清单",
+    "任务分工",
+    "宣传方案",
+    "风险与复盘"
+  ],
+  "hasReplacementChar": false,
+  "assertions": {
+    "status200": true,
+    "contentTypeMarkdown": true,
+    "hasFilenameStar": true,
+    "chineseFilename": true,
+    "headingsAtLeast10": true,
+    "requiredPhrases": true,
+    "noReplacementChar": true
+  }
+}

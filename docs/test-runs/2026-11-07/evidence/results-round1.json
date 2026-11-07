@@ -1,0 +1,134 @@
+{
+  "generatedAt": "2026-11-07T06:15:19.977Z",
+  "mockState": {
+    "startedBeforeRound": true,
+    "restartsDuringRound": 0,
+    "healthAtStart": {
+      "status": "ok",
+      "service": "activity-mind"
+    },
+    "note": "Mock 在用例 1 开始前启动，seed-demo 在启动后执行一次；本轮不重启。"
+  },
+  "results": [
+    {
+      "id": "1",
+      "source": "11.1 A1",
+      "steps": "① 匿名调 GET /plans、GET /plans/{id}；② 匿名打开 /plans；③ 登录后观察落地页；④ 匿名打开 /plans/{id}；⑤ 登录后观察是否回详情；⑥ 写入失效 token 访问 /",
+      "expected": "API /api/v1/plans 与 /api/v1/plans/{id} 未登录均 401；浏览器访问 /plans 与 /plans/{id} 跳登录；登录后详情回到原 /plans/{id}；失效 token 跳登录",
+      "actual": "API 列表 401；API 详情 401；浏览器 /plans -> http://127.0.0.1:5173/login?redirect=/；登录后 -> http://127.0.0.1:5173/；浏览器 /plans/{id} -> http://127.0.0.1:5173/login?redirect=/plans/7bdb54c9-e27a-4af6-aa9c-7158eefce13a；登录后 -> http://127.0.0.1:5173/plans/7bdb54c9-e27a-4af6-aa9c-7158eefce13a；失效 token -> http://127.0.0.1:5173/login?redirect=%2F&expired=1",
+      "status": "PASS",
+      "evidence": "evidence/01-unauth.json；screenshots/01-unauth-plans-login.png；screenshots/01-unauth-detail-login.png；screenshots/01-after-login-detail.png；screenshots/01-expired-token-login.png",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "apiGetPlans": {
+          "status": 401,
+          "body": "{\"detail\":\"登录状态已失效，请重新登录\"}"
+        },
+        "apiGetPlanDetail": {
+          "status": 401,
+          "body": "{\"detail\":\"登录状态已失效，请重新登录\"}"
+        },
+        "browserPlansRedirect": "http://127.0.0.1:5173/login?redirect=/",
+        "browserPlansAfterLogin": "http://127.0.0.1:5173/",
+        "browserDetailRedirect": "http://127.0.0.1:5173/login?redirect=/plans/7bdb54c9-e27a-4af6-aa9c-7158eefce13a",
+        "browserDetailAfterLogin": "http://127.0.0.1:5173/plans/7bdb54c9-e27a-4af6-aa9c-7158eefce13a",
+        "detailTitleAfterLogin": "2026 级迎新晚会活动方案",
+        "expiredTokenRedirect": "http://127.0.0.1:5173/login?redirect=%2F&expired=1"
+      }
+    },
+    {
+      "id": "2",
+      "source": "11.1 A2",
+      "steps": "注册新账号 -> /plans/new 填「迎新晚会/100 人/2000 元/默认一周后 19:00/学校礼堂」-> 提交并记录 POST body",
+      "expected": "POST /api/v1/plans/generate 返回 202；请求体含主题/类型/人数/预算/日期/地点，不含 template_id",
+      "actual": "202=202；字段=theme,activity_type,participants,budget_yuan,starts_at,duration_minutes,location,tone,target_audience；template_id=false",
+      "status": "PASS",
+      "evidence": "evidence/02-generate-request.json；screenshots/03-generating-processing.png",
+      "mockRestartedBeforeCase": false,
+      "requestBody": {
+        "theme": "迎新晚会",
+        "activity_type": "welcome_party",
+        "participants": 100,
+        "budget_yuan": 2000,
+        "starts_at": "2026-11-14T11:00:00.000Z",
+        "duration_minutes": 120,
+        "location": "学校礼堂",
+        "tone": "lively",
+        "target_audience": "2026 级新生"
+      },
+      "templateIdPresent": false
+    },
+    {
+      "id": "3",
+      "source": "11.1 A2 / 前端 README 联调自检",
+      "steps": "提交后进入进度页 -> 观察未知阶段文案 -> 读取 sessionStorage -> 刷新 -> 等待自动进入详情",
+      "expected": "202 -> 轮询 200 -> 详情；未知 stage 显示「处理中」；刷新后 plan-task:{planId} 仍存在并继续轮询到详情",
+      "actual": "202=202；轮询次数=5；处理中=已观察（响应被改写）；storage 前=8a11bec0-329b-4cd0-b206-d0245985641f；刷新后=8a11bec0-329b-4cd0-b206-d0245985641f；最终=http://127.0.0.1:5173/plans/2c04ddd8-23d4-4c21-b9ad-80654ce28986",
+      "status": "PASS",
+      "evidence": "evidence/03-generation.json；screenshots/03-generating-processing.png；screenshots/03-detail-after-reload.png",
+      "mockRestartedBeforeCase": false,
+      "planId": "2c04ddd8-23d4-4c21-b9ad-80654ce28986",
+      "taskId": "8a11bec0-329b-4cd0-b206-d0245985641f",
+      "pollCount": 5
+    },
+    {
+      "id": "4",
+      "source": "11.1 A3",
+      "steps": "生成完成后进入详情 -> 读取 10 个导航标签 -> 逐节点击并截图 -> 调 GET /plans/{id} 核对 content 字段",
+      "expected": "详情页 10 个章节全部渲染；10 章节可映射为 11.1 的 6 部分 + 警告与假设（额外章节），字段证据齐全",
+      "actual": "导航=活动概览/筹备阶段/当晚流程/预算/物资/分工/宣传/风险/复盘/警告与假设；逐节渲染=true；六部分字段=true；materials=true、tasks=true、promotion=true、risks=true、review=true",
+      "status": "PASS",
+      "evidence": "evidence/04-sections.json；screenshots/04-section-01..10-*.png",
+      "mockRestartedBeforeCase": false,
+      "observedLabels": [
+        "活动概览",
+        "筹备阶段",
+        "当晚流程",
+        "预算",
+        "物资",
+        "分工",
+        "宣传",
+        "风险",
+        "复盘",
+        "警告与假设"
+      ]
+    },
+    {
+      "id": "5",
+      "source": "11.1 A7",
+      "steps": "详情「物资」-> 记录初始数量/小计/汇总 -> 编辑第一项数量为 3 -> 保存 -> 对比 PATCH 响应与页面 -> 查看预算合计",
+      "expected": "数量 N->3 后，页面第一行小计与物资汇总等于 PATCH 响应中的 subtotal_yuan / summary.estimated_cost_yuan；version+1",
+      "actual": "N=1，M=3；服务端小计=¥ 1,080.00，页面=¥ 1,080.00；服务端汇总=¥ 2,306.97，页面=¥ 2,306.97；version v1->v2；budget 明细合计 ¥ 1,559.97->¥ 1,559.97，计划合计 ¥ 1,719.97->¥ 1,719.97",
+      "status": "PASS",
+      "evidence": "evidence/05-materials.json；screenshots/05-materials-before/editing/after.png；screenshots/05-budget-before/after-materials-edit.png",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "quantityChanged": true,
+        "subtotalFromServer": true,
+        "summaryFromServer": true,
+        "versionIncremented": true,
+        "persisted": true,
+        "budgetItemsTotalUnchanged": true,
+        "budgetPlannedUnchanged": true
+      }
+    },
+    {
+      "id": "6",
+      "source": "11.1 A7 / README 联调自检",
+      "steps": "demo_studio 登录 -> 新建「预算合计验证」120 人/3600 元 -> 预算编辑 -> 预备金填 500 -> 保存 -> 对比响应与页面",
+      "expected": "新建 120 人/3600 元方案；预备金改为 500 后，服务端返回 items_total_yuan=2808、planned_yuan=3308；页面计划合计显示 ¥ 3,308.00；version+1",
+      "actual": "服务端 items_total=2808、contingency=500、planned=3308；页面计划合计=¥ 3,308.00；version v1->v2",
+      "status": "PASS",
+      "evidence": "evidence/06-budget.json；screenshots/06-budget-before/editing-contingency-500/after.png",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "itemsTotal": true,
+        "contingency": true,
+        "planned": true,
+        "plannedPage": true,
+        "versionIncremented": true,
+        "persisted": true
+      }
+    }
+  ]
+}

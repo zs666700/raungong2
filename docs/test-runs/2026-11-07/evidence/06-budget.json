@@ -1,0 +1,550 @@
+{
+  "caseStartedAt": "2026-11-07T06:15:19.713Z",
+  "planTitle": "预算合计验证活动方案",
+  "planId": "f9928bba-ae2f-4f84-94b1-1cfd7f960106",
+  "planCreation": {
+    "status": 202,
+    "body": {
+      "task_id": "a7e5cd20-915b-40dd-be4d-511019b192c8",
+      "plan_id": "f9928bba-ae2f-4f84-94b1-1cfd7f960106",
+      "status": "queued",
+      "reused": false,
+      "estimated_seconds": 3,
+      "poll_after_ms": 1000,
+      "poll_url": "/api/v1/tasks/a7e5cd20-915b-40dd-be4d-511019b192c8"
+    }
+  },
+  "versionBefore": "v1",
+  "versionAfter": "v2",
+  "before": {
+    "申请预算": "¥ 3,600.00",
+    "明细合计": "¥ 2,808.00",
+    "预备金": "¥ 288.00",
+    "计划合计": "¥ 3,096.00"
+  },
+  "previewWithContingency500": {
+    "申请预算": "¥ 3,600.00",
+    "明细合计": "¥ 2,808.00",
+    "预备金": "",
+    "计划合计": "¥ 3,308.00"
+  },
+  "patchRequestBody": {
+    "version": 1,
+    "data": {
+      "summary": "面向120 位参与者，11 月 14 日在学校礼堂举办，预计 120 人参与，全程约 120 分钟。方案以轻松活泼的基调组织，覆盖场地设备、物料制作、宣传、餐饮与奖品，预算控制在 ¥3,600 以内。",
+      "background": "新学期活动密集，120 位参与者对迎新晚会类活动的参与意愿较高，但筹备窗口通常只有两到三周。需要在有限预算内把流程、物料与人员安排一次性讲清楚，避免临场补位。",
+      "objectives": [
+        "让120 位参与者完整参与一次有记忆点的迎新晚会",
+        "在 2026-11-14 前完成场地、物料与人员准备",
+        "把总支出控制在 ¥3,600 以内",
+        "沉淀一份可复用的活动流程与分工模板"
+      ],
+      "highlights": [
+        "开场灯光秀与社团联合演出",
+        "社团风采展示与全场互动游戏，设置至少 2 个可参与的互动点位",
+        "现场抽取 4 份互动奖品",
+        "用一块主视觉背景板串起签到、合影与传播素材"
+      ],
+      "success_criteria": [
+        "实际到场率不低于 90%，签到人数达到 108 人",
+        "现场无安全事故，设备故障在 10 分钟内恢复",
+        "活动结束后 24 小时内完成图文复盘与费用对账"
+      ],
+      "phases": [
+        {
+          "id": "P1",
+          "name": "立项与统筹",
+          "start_date": "2026-10-24",
+          "end_date": "2026-10-31",
+          "goal": "把活动目标、预算上限与责任人定下来，完成场地与审批。",
+          "key_actions": [
+            "确认主题、规模与预算上限",
+            "建立筹备群，明确五个小组负责人",
+            "提交场地申请与活动审批"
+          ],
+          "owner": "统筹组 · 林晓",
+          "deliverables": [
+            "活动立项单",
+            "分组分工表",
+            "场地与审批回执"
+          ]
+        },
+        {
+          "id": "P2",
+          "name": "宣传与报名",
+          "start_date": "2026-10-31",
+          "end_date": "2026-11-07",
+          "goal": "完成主视觉与文案，把报名量做到目标人数的 1.1 倍。",
+          "key_actions": [
+            "确定口号与主视觉",
+            "公众号推文与班级群同步发布",
+            "建立报名接龙并每日核对"
+          ],
+          "owner": "宣传组 · 陈默",
+          "deliverables": [
+            "主视觉与海报",
+            "推文链接",
+            "报名名单"
+          ]
+        },
+        {
+          "id": "P3",
+          "name": "物料与彩排",
+          "start_date": "2026-11-07",
+          "end_date": "2026-11-13",
+          "goal": "物料到位、设备联调完成，流程至少完整走一遍。",
+          "key_actions": [
+            "按清单采购与借调物资",
+            "确认音响、投影与话筒",
+            "完成主持人串词与全流程彩排"
+          ],
+          "owner": "物料组 · 周雨",
+          "deliverables": [
+            "物资签收表",
+            "设备清单",
+            "彩排记录"
+          ]
+        },
+        {
+          "id": "P4",
+          "name": "现场与复盘",
+          "start_date": "2026-11-14",
+          "end_date": "2026-11-16",
+          "goal": "按流程完成现场执行，并在两天内完成复盘。",
+          "key_actions": [
+            "提前 2 小时进场布置",
+            "按流程单执行并记录偏差",
+            "完成费用对账与图文复盘"
+          ],
+          "owner": "现场组 · 李想",
+          "deliverables": [
+            "现场流程单",
+            "费用对账表",
+            "复盘文档"
+          ]
+        }
+      ],
+      "rundown": [
+        {
+          "seq": 1,
+          "start_time": "19:00",
+          "end_time": "19:14",
+          "duration_minutes": 14,
+          "segment": "暖场与签到",
+          "content": "循环播放暖场音乐，签到并发放物料",
+          "owner": "签到组 · 林晓",
+          "location": "学校礼堂入口",
+          "notes": "提前 30 分钟开放入场"
+        },
+        {
+          "seq": 2,
+          "start_time": "19:14",
+          "end_time": "19:24",
+          "duration_minutes": 10,
+          "segment": "开场",
+          "content": "开场灯光秀与社团联合演出",
+          "owner": "主持人 · 陈默",
+          "location": "学校礼堂",
+          "notes": ""
+        },
+        {
+          "seq": 3,
+          "start_time": "19:24",
+          "end_time": "19:52",
+          "duration_minutes": 28,
+          "segment": "主题环节",
+          "content": "社团风采展示与全场互动游戏（上半场）",
+          "owner": "节目组 · 周雨",
+          "location": "学校礼堂",
+          "notes": ""
+        },
+        {
+          "seq": 4,
+          "start_time": "19:52",
+          "end_time": "20:12",
+          "duration_minutes": 20,
+          "segment": "互动环节",
+          "content": "分组互动与现场抽奖",
+          "owner": "互动组 · 李想",
+          "location": "学校礼堂",
+          "notes": ""
+        },
+        {
+          "seq": 5,
+          "start_time": "20:12",
+          "end_time": "20:36",
+          "duration_minutes": 24,
+          "segment": "主题环节",
+          "content": "社团风采展示与全场互动游戏（下半场）",
+          "owner": "节目组 · 王宁",
+          "location": "学校礼堂",
+          "notes": ""
+        },
+        {
+          "seq": 6,
+          "start_time": "20:36",
+          "end_time": "20:50",
+          "duration_minutes": 14,
+          "segment": "收尾",
+          "content": "迎新寄语与全场大合影",
+          "owner": "统筹组 · 赵可",
+          "location": "学校礼堂",
+          "notes": ""
+        },
+        {
+          "seq": 7,
+          "start_time": "20:50",
+          "end_time": "20:56",
+          "duration_minutes": 6,
+          "segment": "散场",
+          "content": "引导离场、清点物资与合影",
+          "owner": "后勤组 · 林晓",
+          "location": "学校礼堂",
+          "notes": ""
+        },
+        {
+          "seq": 8,
+          "start_time": "20:56",
+          "end_time": "21:00",
+          "duration_minutes": 4,
+          "segment": "复盘",
+          "content": "现场快速复盘，记录问题与改进项",
+          "owner": "统筹组 · 陈默",
+          "location": "学校礼堂",
+          "notes": "清点物资后再离场"
+        }
+      ],
+      "budget": {
+        "currency": "CNY",
+        "requested_yuan": 3600,
+        "items_total_yuan": 2808,
+        "contingency_yuan": 500,
+        "planned_yuan": 3308,
+        "items": [
+          {
+            "id": "B1",
+            "category": "场地与设备",
+            "name": "音响与话筒租赁",
+            "unit": "套",
+            "quantity": 1,
+            "unit_price_yuan": 648,
+            "amount_yuan": 648,
+            "note": "含无线麦 2 支、调音台"
+          },
+          {
+            "id": "B2",
+            "category": "场地与设备",
+            "name": "场地布置与灯光",
+            "unit": "项",
+            "quantity": 1,
+            "unit_price_yuan": 576,
+            "amount_yuan": 576,
+            "note": "背景桁架、气球与地灯"
+          },
+          {
+            "id": "B3",
+            "category": "物料制作",
+            "name": "主视觉背景板",
+            "unit": "块",
+            "quantity": 1,
+            "unit_price_yuan": 360,
+            "amount_yuan": 360,
+            "note": "3m × 2m 喷绘"
+          },
+          {
+            "id": "B4",
+            "category": "物料制作",
+            "name": "手举牌与胸牌",
+            "unit": "套",
+            "quantity": 10,
+            "unit_price_yuan": 21.6,
+            "amount_yuan": 216,
+            "note": "按到场人数分批发放"
+          },
+          {
+            "id": "B5",
+            "category": "宣传",
+            "name": "海报与传单印制",
+            "unit": "张",
+            "quantity": 120,
+            "unit_price_yuan": 1.5,
+            "amount_yuan": 180,
+            "note": "A3 海报 + A5 传单"
+          },
+          {
+            "id": "B6",
+            "category": "餐饮",
+            "name": "瓶装饮用水",
+            "unit": "箱",
+            "quantity": 5,
+            "unit_price_yuan": 28.8,
+            "amount_yuan": 144,
+            "note": "每箱 24 瓶"
+          },
+          {
+            "id": "B7",
+            "category": "奖品",
+            "name": "互动与抽奖奖品",
+            "unit": "份",
+            "quantity": 4,
+            "unit_price_yuan": 126,
+            "amount_yuan": 504,
+            "note": "分设一、二、三等奖"
+          },
+          {
+            "id": "B8",
+            "category": "机动",
+            "name": "应急与杂项",
+            "unit": "项",
+            "quantity": 1,
+            "unit_price_yuan": 180,
+            "amount_yuan": 180,
+            "note": "备用电池、医药包等"
+          }
+        ],
+        "funding_sources": [
+          {
+            "name": "学院 / 单位拨款",
+            "amount_yuan": 2160
+          },
+          {
+            "name": "社团自筹",
+            "amount_yuan": 900
+          },
+          {
+            "name": "赞助与赞助物资",
+            "amount_yuan": 540
+          }
+        ]
+      }
+    },
+    "comment": "手动编辑"
+  },
+  "patchResponse": {
+    "status": 200,
+    "version": 2,
+    "budget": {
+      "currency": "CNY",
+      "requested_yuan": 3600,
+      "items_total_yuan": 2808,
+      "contingency_yuan": 500,
+      "planned_yuan": 3308,
+      "items": [
+        {
+          "id": "B1",
+          "category": "场地与设备",
+          "name": "音响与话筒租赁",
+          "unit": "套",
+          "quantity": 1,
+          "unit_price_yuan": 648,
+          "amount_yuan": 648,
+          "note": "含无线麦 2 支、调音台"
+        },
+        {
+          "id": "B2",
+          "category": "场地与设备",
+          "name": "场地布置与灯光",
+          "unit": "项",
+          "quantity": 1,
+          "unit_price_yuan": 576,
+          "amount_yuan": 576,
+          "note": "背景桁架、气球与地灯"
+        },
+        {
+          "id": "B3",
+          "category": "物料制作",
+          "name": "主视觉背景板",
+          "unit": "块",
+          "quantity": 1,
+          "unit_price_yuan": 360,
+          "amount_yuan": 360,
+          "note": "3m × 2m 喷绘"
+        },
+        {
+          "id": "B4",
+          "category": "物料制作",
+          "name": "手举牌与胸牌",
+          "unit": "套",
+          "quantity": 10,
+          "unit_price_yuan": 21.6,
+          "amount_yuan": 216,
+          "note": "按到场人数分批发放"
+        },
+        {
+          "id": "B5",
+          "category": "宣传",
+          "name": "海报与传单印制",
+          "unit": "张",
+          "quantity": 120,
+          "unit_price_yuan": 1.5,
+          "amount_yuan": 180,
+          "note": "A3 海报 + A5 传单"
+        },
+        {
+          "id": "B6",
+          "category": "餐饮",
+          "name": "瓶装饮用水",
+          "unit": "箱",
+          "quantity": 5,
+          "unit_price_yuan": 28.8,
+          "amount_yuan": 144,
+          "note": "每箱 24 瓶"
+        },
+        {
+          "id": "B7",
+          "category": "奖品",
+          "name": "互动与抽奖奖品",
+          "unit": "份",
+          "quantity": 4,
+          "unit_price_yuan": 126,
+          "amount_yuan": 504,
+          "note": "分设一、二、三等奖"
+        },
+        {
+          "id": "B8",
+          "category": "机动",
+          "name": "应急与杂项",
+          "unit": "项",
+          "quantity": 1,
+          "unit_price_yuan": 180,
+          "amount_yuan": 180,
+          "note": "备用电池、医药包等"
+        }
+      ],
+      "funding_sources": [
+        {
+          "name": "学院 / 单位拨款",
+          "amount_yuan": 2160
+        },
+        {
+          "name": "社团自筹",
+          "amount_yuan": 900
+        },
+        {
+          "name": "赞助与赞助物资",
+          "amount_yuan": 540
+        }
+      ]
+    }
+  },
+  "after": {
+    "申请预算": "¥ 3,600.00",
+    "明细合计": "¥ 2,808.00",
+    "预备金": "¥ 500.00",
+    "计划合计": "¥ 3,308.00"
+  },
+  "serverDetail": {
+    "version": 2,
+    "budget": {
+      "currency": "CNY",
+      "requested_yuan": 3600,
+      "items_total_yuan": 2808,
+      "contingency_yuan": 500,
+      "planned_yuan": 3308,
+      "items": [
+        {
+          "id": "B1",
+          "category": "场地与设备",
+          "name": "音响与话筒租赁",
+          "unit": "套",
+          "quantity": 1,
+          "unit_price_yuan": 648,
+          "amount_yuan": 648,
+          "note": "含无线麦 2 支、调音台"
+        },
+        {
+          "id": "B2",
+          "category": "场地与设备",
+          "name": "场地布置与灯光",
+          "unit": "项",
+          "quantity": 1,
+          "unit_price_yuan": 576,
+          "amount_yuan": 576,
+          "note": "背景桁架、气球与地灯"
+        },
+        {
+          "id": "B3",
+          "category": "物料制作",
+          "name": "主视觉背景板",
+          "unit": "块",
+          "quantity": 1,
+          "unit_price_yuan": 360,
+          "amount_yuan": 360,
+          "note": "3m × 2m 喷绘"
+        },
+        {
+          "id": "B4",
+          "category": "物料制作",
+          "name": "手举牌与胸牌",
+          "unit": "套",
+          "quantity": 10,
+          "unit_price_yuan": 21.6,
+          "amount_yuan": 216,
+          "note": "按到场人数分批发放"
+        },
+        {
+          "id": "B5",
+          "category": "宣传",
+          "name": "海报与传单印制",
+          "unit": "张",
+          "quantity": 120,
+          "unit_price_yuan": 1.5,
+          "amount_yuan": 180,
+          "note": "A3 海报 + A5 传单"
+        },
+        {
+          "id": "B6",
+          "category": "餐饮",
+          "name": "瓶装饮用水",
+          "unit": "箱",
+          "quantity": 5,
+          "unit_price_yuan": 28.8,
+          "amount_yuan": 144,
+          "note": "每箱 24 瓶"
+        },
+        {
+          "id": "B7",
+          "category": "奖品",
+          "name": "互动与抽奖奖品",
+          "unit": "份",
+          "quantity": 4,
+          "unit_price_yuan": 126,
+          "amount_yuan": 504,
+          "note": "分设一、二、三等奖"
+        },
+        {
+          "id": "B8",
+          "category": "机动",
+          "name": "应急与杂项",
+          "unit": "项",
+          "quantity": 1,
+          "unit_price_yuan": 180,
+          "amount_yuan": 180,
+          "note": "备用电池、医药包等"
+        }
+      ],
+      "funding_sources": [
+        {
+          "name": "学院 / 单位拨款",
+          "amount_yuan": 2160
+        },
+        {
+          "name": "社团自筹",
+          "amount_yuan": 900
+        },
+        {
+          "name": "赞助与赞助物资",
+          "amount_yuan": 540
+        }
+      ]
+    }
+  },
+  "assertions": {
+    "itemsTotal": true,
+    "contingency": true,
+    "planned": true,
+    "plannedPage": true,
+    "versionIncremented": true,
+    "persisted": true
+  }
+}

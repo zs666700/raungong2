@@ -1,0 +1,197 @@
+{
+  "observedLabels": [
+    "活动概览",
+    "筹备阶段",
+    "当晚流程",
+    "预算",
+    "物资",
+    "分工",
+    "宣传",
+    "风险",
+    "复盘",
+    "警告与假设"
+  ],
+  "expectedLabels": [
+    "活动概览",
+    "筹备阶段",
+    "当晚流程",
+    "预算",
+    "物资",
+    "分工",
+    "宣传",
+    "风险",
+    "复盘",
+    "警告与假设"
+  ],
+  "sections": [
+    {
+      "label": "活动概览",
+      "panelTitle": "活动概览",
+      "panelTextLength": 442,
+      "screenshot": "screenshots/04-section-01-活动概览.png"
+    },
+    {
+      "label": "筹备阶段",
+      "panelTitle": "筹备阶段",
+      "panelTextLength": 512,
+      "screenshot": "screenshots/04-section-02-筹备阶段.png"
+    },
+    {
+      "label": "当晚流程",
+      "panelTitle": "当晚流程",
+      "panelTextLength": 493,
+      "screenshot": "screenshots/04-section-03-当晚流程.png"
+    },
+    {
+      "label": "预算",
+      "panelTitle": "预算",
+      "panelTextLength": 536,
+      "screenshot": "screenshots/04-section-04-预算.png"
+    },
+    {
+      "label": "物资",
+      "panelTitle": "物资",
+      "panelTextLength": 753,
+      "screenshot": "screenshots/04-section-05-物资.png"
+    },
+    {
+      "label": "分工",
+      "panelTitle": "分工",
+      "panelTextLength": 966,
+      "screenshot": "screenshots/04-section-06-分工.png"
+    },
+    {
+      "label": "宣传",
+      "panelTitle": "宣传",
+      "panelTextLength": 548,
+      "screenshot": "screenshots/04-section-07-宣传.png"
+    },
+    {
+      "label": "风险",
+      "panelTitle": "风险",
+      "panelTextLength": 725,
+      "screenshot": "screenshots/04-section-08-风险.png"
+    },
+    {
+      "label": "复盘",
+      "panelTitle": "复盘",
+      "panelTextLength": 613,
+      "screenshot": "screenshots/04-section-09-复盘.png"
+    },
+    {
+      "label": "警告与假设",
+      "panelTitle": "警告与假设",
+      "panelTextLength": 159,
+      "screenshot": "screenshots/04-section-10-警告与假设.png"
+    }
+  ],
+  "contentKeys": [
+    "schema_version",
+    "meta",
+    "plan",
+    "materials",
+    "tasks",
+    "promotion",
+    "risks",
+    "review",
+    "assumptions",
+    "warnings"
+  ],
+  "planKeys": [
+    "summary",
+    "background",
+    "objectives",
+    "highlights",
+    "success_criteria",
+    "phases",
+    "rundown",
+    "budget"
+  ],
+  "counts": {
+    "materials": 10,
+    "tasks": 12,
+    "risks": 6,
+    "warnings": 0,
+    "assumptions": 3
+  },
+  "mapping": [
+    {
+      "part": "策划案",
+      "sections": [
+        "活动概览",
+        "筹备阶段",
+        "当晚流程",
+        "预算"
+      ],
+      "evidenceFields": [
+        "plan.summary",
+        "plan.phases",
+        "plan.rundown",
+        "plan.budget"
+      ],
+      "present": true
+    },
+    {
+      "part": "物资清单",
+      "sections": [
+        "物资"
+      ],
+      "evidenceFields": [
+        "materials.items",
+        "materials.summary"
+      ],
+      "present": true
+    },
+    {
+      "part": "分工表",
+      "sections": [
+        "分工"
+      ],
+      "evidenceFields": [
+        "tasks.items"
+      ],
+      "present": true
+    },
+    {
+      "part": "宣传文案",
+      "sections": [
+        "宣传"
+      ],
+      "evidenceFields": [
+        "promotion"
+      ],
+      "present": true
+    },
+    {
+      "part": "风险清单",
+      "sections": [
+        "风险"
+      ],
+      "evidenceFields": [
+        "risks.items"
+      ],
+      "present": true
+    },
+    {
+      "part": "复盘模板",
+      "sections": [
+        "复盘"
+      ],
+      "evidenceFields": [
+        "review"
+      ],
+      "present": true
+    },
+    {
+      "part": "附加（不计入六部分）",
+      "sections": [
+        "警告与假设"
+      ],
+      "evidenceFields": [
+        "warnings",
+        "assumptions"
+      ],
+      "present": true
+    }
+  ]
+}

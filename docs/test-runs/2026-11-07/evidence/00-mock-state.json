@@ -1,0 +1,10 @@
+{
+  "startedBeforeRound": true,
+  "restartsDuringRound": 0,
+  "healthAtStart": {
+    "status": "ok",
+    "service": "activity-mind"
+  },
+  "note": "Mock 在用例 1 开始前启动，seed-demo 在启动后执行一次；本轮不重启。",
+  "recordedAt": "2026-11-07T06:14:54.999Z"
+}

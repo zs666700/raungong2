@@ -1,0 +1,143 @@
+{
+  "caseStartedAt": "2026-11-07T06:27:08.971Z",
+  "planId": "7fe0691d-d0dc-42c9-8e03-4c2ef703b04f",
+  "sectionCount": 10,
+  "checkViewportWidth": 680,
+  "layout": {
+    "viewportWidth": 680,
+    "bodyClientWidth": 680,
+    "bodyScrollWidth": 680,
+    "tables": [
+      {
+        "index": 0,
+        "tag": "data-table stack-table",
+        "clientWidth": 680,
+        "scrollWidth": 680,
+        "rectWidth": 680,
+        "parentClientWidth": 680,
+        "parentScrollWidth": 680,
+        "overflowX": false,
+        "outsideViewport": false
+      },
+      {
+        "index": 1,
+        "tag": "data-table budget-table stack-table",
+        "clientWidth": 680,
+        "scrollWidth": 680,
+        "rectWidth": 680,
+        "parentClientWidth": 680,
+        "parentScrollWidth": 680,
+        "overflowX": false,
+        "outsideViewport": false
+      },
+      {
+        "index": 2,
+        "tag": "data-table materials-table stack-table",
+        "clientWidth": 680,
+        "scrollWidth": 680,
+        "rectWidth": 680,
+        "parentClientWidth": 680,
+        "parentScrollWidth": 680,
+        "overflowX": false,
+        "outsideViewport": false
+      },
+      {
+        "index": 3,
+        "tag": "data-table stack-table",
+        "clientWidth": 680,
+        "scrollWidth": 680,
+        "rectWidth": 680,
+        "parentClientWidth": 680,
+        "parentScrollWidth": 680,
+        "overflowX": false,
+        "outsideViewport": false
+      },
+      {
+        "index": 4,
+        "tag": "data-table stack-table",
+        "clientWidth": 680,
+        "scrollWidth": 680,
+        "rectWidth": 680,
+        "parentClientWidth": 680,
+        "parentScrollWidth": 680,
+        "overflowX": false,
+        "outsideViewport": false
+      },
+      {
+        "index": 5,
+        "tag": "data-table stack-table",
+        "clientWidth": 680,
+        "scrollWidth": 680,
+        "rectWidth": 680,
+        "parentClientWidth": 680,
+        "parentScrollWidth": 680,
+        "overflowX": false,
+        "outsideViewport": false
+      },
+      {
+        "index": 6,
+        "tag": "data-table stack-table",
+        "clientWidth": 680,
+        "scrollWidth": 680,
+        "rectWidth": 680,
+        "parentClientWidth": 680,
+        "parentScrollWidth": 680,
+        "overflowX": false,
+        "outsideViewport": false
+      },
+      {
+        "index": 7,
+        "tag": "data-table stack-table",
+        "clientWidth": 680,
+        "scrollWidth": 680,
+        "rectWidth": 680,
+        "parentClientWidth": 680,
+        "parentScrollWidth": 680,
+        "overflowX": false,
+        "outsideViewport": false
+      },
+      {
+        "index": 8,
+        "tag": "data-table stack-table",
+        "clientWidth": 680,
+        "scrollWidth": 680,
+        "rectWidth": 680,
+        "parentClientWidth": 680,
+        "parentScrollWidth": 680,
+        "overflowX": false,
+        "outsideViewport": false
+      }
+    ]
+  },
+  "tablesOverflow": [],
+  "pdf": {
+    "path": "evidence/09-print.pdf",
+    "bytes": 1725775,
+    "mediaBoxes": [
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998",
+      "0 0 594.95996 841.91998"
+    ],
+    "pageCount": 15
+  },
+  "assertions": {
+    "tenSections": true,
+    "noTableOverflow": true,
+    "noBodyHorizontalScroll": true,
+    "pdfGenerated": true,
+    "a4MediaBox": true
+  },
+  "note": "680px 近似 A4 内容宽度（210mm - 左右各 15mm ≈ 180mm ≈ 680px）；PDF 由 Playwright 按 CSS @page A4 生成。"
+}

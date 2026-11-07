@@ -1,0 +1,71 @@
+{
+  "caseStartedAt": "2026-11-07T06:27:12.935Z",
+  "scenarios": [
+    {
+      "theme": "失败态超时用例",
+      "code": "AGENT_TIMEOUT",
+      "message": "智能体响应超时，请稍后重试",
+      "createStatus": 202,
+      "createResponse": {
+        "task_id": "a27d85cd-f203-4363-8a76-c48467f7c012",
+        "plan_id": "50a4d658-03f6-459d-92f3-8892a3a36b3e",
+        "status": "queued",
+        "reused": false,
+        "estimated_seconds": 3,
+        "poll_after_ms": 1000,
+        "poll_url": "/api/v1/tasks/a27d85cd-f203-4363-8a76-c48467f7c012"
+      },
+      "interceptedTask": {
+        "status": "failed",
+        "error": {
+          "code": "AGENT_TIMEOUT",
+          "message": "智能体响应超时，请稍后重试",
+          "retryable": true
+        }
+      },
+      "outcomeCode": "AGENT_TIMEOUT · 可重试",
+      "outcomeText": "!\nFAILED\n\n生成失败\n\n智能体响应超时，请稍后重试\n\nAGENT_TIMEOUT · 可重试\n\n查看方案\n重新填写并生成\n返回方案档案",
+      "retryVisible": true,
+      "assertions": {
+        "status202": true,
+        "codeShown": true,
+        "retryableShown": true,
+        "retryEntryVisible": true
+      }
+    },
+    {
+      "theme": "失败态非法JSON用例",
+      "code": "AGENT_OUTPUT_INVALID",
+      "message": "智能体返回内容中没有 JSON 对象",
+      "createStatus": 202,
+      "createResponse": {
+        "task_id": "7207fbe8-b8e9-4745-b2a8-a43e896ad75a",
+        "plan_id": "4a9e27d3-e330-4f05-b059-8d4f4a001fc2",
+        "status": "queued",
+        "reused": false,
+        "estimated_seconds": 3,
+        "poll_after_ms": 1000,
+        "poll_url": "/api/v1/tasks/7207fbe8-b8e9-4745-b2a8-a43e896ad75a"
+      },
+      "interceptedTask": {
+        "status": "failed",
+        "error": {
+          "code": "AGENT_OUTPUT_INVALID",
+          "message": "智能体返回内容中没有 JSON 对象",
+          "retryable": true
+        }
+      },
+      "outcomeCode": "AGENT_OUTPUT_INVALID · 可重试",
+      "outcomeText": "!\nFAILED\n\n生成失败\n\n智能体返回内容中没有 JSON 对象\n\nAGENT_OUTPUT_INVALID · 可重试\n\n查看方案\n重新填写并生成\n返回方案档案",
+      "retryVisible": true,
+      "assertions": {
+        "status202": true,
+        "codeShown": true,
+        "retryableShown": true,
+        "retryEntryVisible": true
+      }
+    }
+  ],
+  "retryPath": "/plans/new",
+  "note": "AGENT_TIMEOUT 与 AGENT_OUTPUT_INVALID 由 Playwright 拦截 GET /tasks/{id} 并返回 failed 任务触发；devmock 原生只支持主题含“失败”的 MOCK_GENERATION_FAILED。"
+}

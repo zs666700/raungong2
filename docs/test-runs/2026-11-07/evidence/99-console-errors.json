@@ -1,0 +1,47 @@
+{
+  "consoleErrors": [
+    {
+      "label": "case1-expired",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [
+    {
+      "label": "case1-expired",
+      "url": "http://127.0.0.1:5173/src/api/errors.ts",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "label": "case1-expired",
+      "url": "http://127.0.0.1:5173/src/components/MikuMark.vue",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "label": "case1-expired",
+      "url": "http://127.0.0.1:5173/src/views/LoginView.vue?vue&type=style&index=0&scoped=45f5edd7&lang.css",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "label": "case6",
+      "url": "http://127.0.0.1:8082/api/v1/plans?page=1&page_size=20",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "label": "case6",
+      "url": "http://127.0.0.1:8082/healthz",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "label": "case6",
+      "url": "http://127.0.0.1:5173/favicon.svg",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    }
+  ]
+}

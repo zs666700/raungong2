@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-11-07T06:27:13.228Z",
+  "mockState": {
+    "startedBeforeRound": true,
+    "restartsDuringRound": 0,
+    "healthAtStart": {
+      "status": "ok",
+      "service": "activity-mind"
+    },
+    "note": "第二轮开始时 Mock 仍为第一轮同一进程；本轮不重启。"
+  },
+  "results": [
+    {
+      "id": "7",
+      "source": "11.1 A8",
+      "steps": "同一用户两个标签页同时编辑物资；A 先保存；B 用旧 version 保存；载入最新版本",
+      "expected": "A 保存成功 version+1；B 用旧 version 保存返回 409 VERSION_CONFLICT；弹窗提示并载入最新版本；内容保持 A 的修改，不被 B 覆盖",
+      "actual": "A=200 v2；B=409 VERSION_CONFLICT current_version=2；弹窗含最新版本=true；B 重载后 v2，第一项数量=2 套",
+      "status": "PASS",
+      "evidence": "evidence/07-conflict.json；screenshots/07-conflict-dialog.png；screenshots/07-after-conflict-reload.png",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "aSave200": true,
+        "aVersionBumped": true,
+        "bothOldVersion": true,
+        "bSave409": true,
+        "bCodeVersionConflict": true,
+        "bCurrentVersion2": true,
+        "dialogMentionsLatest": true,
+        "reloadedLatestVersion": true,
+        "contentNotOverwritten": true
+      }
+    },
+    {
+      "id": "8",
+      "source": "11.1 A9",
+      "steps": "详情页点击 Markdown；捕获下载和 /export 响应；读取文件校验文件名/编码/章节",
+      "expected": "blob 下载；响应 200、text/markdown；filename* 解析出中文文件名；Markdown UTF-8 无乱码且含全部章节",
+      "actual": "200=200；content-type=text/markdown; charset=utf-8；filename=409 冲突用例 804624活动方案.md；标题=一、活动概览 / 二、筹备阶段 / 三、当晚流程 / 四、预算 / 五、物资清单 / 六、任务分工 / 七、宣传方案 / 八、风险与复盘 / 一、基本信息 / 二、目标回顾 / 三、做得好 / 四、待改进 / 五、下次行动 / 附：前提假设；字节=12643；替换字符=false",
+      "status": "PASS",
+      "evidence": "evidence/08-export.json；evidence/08-export.md；screenshots/08-export-page.png",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "status200": true,
+        "contentTypeMarkdown": true,
+        "hasFilenameStar": true,
+        "chineseFilename": true,
+        "headingsAtLeast10": true,
+        "requiredPhrases": true,
+        "noReplacementChar": true
+      }
+    },
+    {
+      "id": "9",
+      "source": "11.1 A10",
+      "steps": "打印预览页；print media + A4 内容宽度 680px 检查表格；生成 A4 PDF",
+      "expected": "A4 下 10 个章节全渲染；所有表格无横向溢出；生成 A4 PDF 且 MediaBox 为 595×842pt",
+      "actual": "章节=10；溢出表=0；body scrollWidth/clientWidth=680/680；PDF=1725775B，页数=15，MediaBox=0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998 | 0 0 594.95996 841.91998",
+      "status": "PASS",
+      "evidence": "evidence/09-print.json；evidence/09-print.pdf；screenshots/09-print-a4-794.png；screenshots/09-print-a4-content-680.png",
+      "mockRestartedBeforeCase": false,
+      "checks": {
+        "tenSections": true,
+        "noTableOverflow": true,
+        "noBodyHorizontalScroll": true,
+        "pdfGenerated": true,
+        "a4MediaBox": true
+      }
+    },
+    {
+      "id": "10",
+      "source": "11.1 A13",
+      "steps": "新建两个方案；分别拦截任务响应为 AGENT_TIMEOUT / AGENT_OUTPUT_INVALID；断言错误码与重试入口",
+      "expected": "展示对应错误码 + 可重试；重试入口可进入重新填写页",
+      "actual": "AGENT_TIMEOUT: code=AGENT_TIMEOUT · 可重试，按钮=true；AGENT_OUTPUT_INVALID: code=AGENT_OUTPUT_INVALID · 可重试，按钮=true；重试入口=/plans/new",
+      "status": "PASS",
+      "evidence": "evidence/10-failure.json；screenshots/10-failure-timeout.png；screenshots/10-failure-invalid-json.png",
+      "mockRestartedBeforeCase": false,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ]
+}

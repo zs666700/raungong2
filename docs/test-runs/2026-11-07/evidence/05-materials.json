@@ -1,0 +1,269 @@
+{
+  "caseStartedAt": "2026-11-07T06:15:11.369Z",
+  "planId": "2c04ddd8-23d4-4c21-b9ad-80654ce28986",
+  "quantityN": "1",
+  "quantityM": 3,
+  "before": {
+    "version": "v1",
+    "firstRow": {
+      "quantity": "1 套",
+      "unitPrice": "¥ 360.00",
+      "subtotal": "¥ 360.00"
+    },
+    "summaryValues": [
+      "10",
+      "124",
+      "¥ 1,586.97"
+    ],
+    "budgetTotals": {
+      "申请预算": "¥ 2,000.00",
+      "明细合计": "¥ 1,559.97",
+      "预备金": "¥ 160.00",
+      "计划合计": "¥ 1,719.97"
+    }
+  },
+  "patchRequestBody": {
+    "version": 1,
+    "data": {
+      "items": [
+        {
+          "id": "M1",
+          "category": "场地与设备",
+          "name": "音响与话筒租赁",
+          "spec": "双 15 寸音箱 + 无线麦",
+          "unit": "套",
+          "quantity": 3,
+          "unit_price_yuan": 360,
+          "subtotal_yuan": 1080,
+          "purchase_channel": "校内打印店",
+          "owner": "林晓",
+          "needed_by": "2026-11-09",
+          "status": "pending",
+          "note": "提前一天完成设备联调"
+        },
+        {
+          "id": "M2",
+          "category": "场地与设备",
+          "name": "场地布置与灯光",
+          "spec": "桁架、气球、LED 地灯",
+          "unit": "项",
+          "quantity": 1,
+          "unit_price_yuan": 320,
+          "subtotal_yuan": 320,
+          "purchase_channel": "淘宝采购",
+          "owner": "陈默",
+          "needed_by": "2026-11-09",
+          "status": "purchased",
+          "note": ""
+        },
+        {
+          "id": "M3",
+          "category": "物料制作",
+          "name": "主视觉背景板",
+          "spec": "3m × 2m 喷绘",
+          "unit": "块",
+          "quantity": 1,
+          "unit_price_yuan": 200,
+          "subtotal_yuan": 200,
+          "purchase_channel": "京东自营",
+          "owner": "周雨",
+          "needed_by": "2026-11-09",
+          "status": "pending",
+          "note": ""
+        },
+        {
+          "id": "M4",
+          "category": "物料制作",
+          "name": "手举牌与胸牌",
+          "spec": "亚克力胸牌 + 手举牌",
+          "unit": "套",
+          "quantity": 9,
+          "unit_price_yuan": 13.33,
+          "subtotal_yuan": 119.97,
+          "purchase_channel": "校团委借调",
+          "owner": "李想",
+          "needed_by": "2026-11-12",
+          "status": "borrowed",
+          "note": ""
+        },
+        {
+          "id": "M5",
+          "category": "宣传",
+          "name": "海报与传单印制",
+          "spec": "A3 海报 / A5 传单",
+          "unit": "张",
+          "quantity": 100,
+          "unit_price_yuan": 1,
+          "subtotal_yuan": 100,
+          "purchase_channel": "大型超市",
+          "owner": "王宁",
+          "needed_by": "2026-11-12",
+          "status": "pending",
+          "note": ""
+        },
+        {
+          "id": "M6",
+          "category": "餐饮",
+          "name": "瓶装饮用水",
+          "spec": "550ml × 24 瓶",
+          "unit": "箱",
+          "quantity": 5,
+          "unit_price_yuan": 16,
+          "subtotal_yuan": 80,
+          "purchase_channel": "校内打印店",
+          "owner": "赵可",
+          "needed_by": "2026-11-12",
+          "status": "purchased",
+          "note": ""
+        },
+        {
+          "id": "M7",
+          "category": "奖品",
+          "name": "互动与抽奖奖品",
+          "spec": "文创礼盒与代金券",
+          "unit": "份",
+          "quantity": 4,
+          "unit_price_yuan": 70,
+          "subtotal_yuan": 280,
+          "purchase_channel": "淘宝采购",
+          "owner": "林晓",
+          "needed_by": "2026-11-12",
+          "status": "ready",
+          "note": ""
+        },
+        {
+          "id": "M8",
+          "category": "机动",
+          "name": "应急与杂项",
+          "spec": "电池、医药包、胶带",
+          "unit": "项",
+          "quantity": 1,
+          "unit_price_yuan": 100,
+          "subtotal_yuan": 100,
+          "purchase_channel": "京东自营",
+          "owner": "陈默",
+          "needed_by": "2026-11-12",
+          "status": "pending",
+          "note": ""
+        },
+        {
+          "id": "M9",
+          "category": "现场用品",
+          "name": "签到表与签字笔",
+          "spec": "A4 签到表 10 张",
+          "unit": "套",
+          "quantity": 1,
+          "unit_price_yuan": 15,
+          "subtotal_yuan": 15,
+          "purchase_channel": "校内打印店",
+          "owner": "周雨",
+          "needed_by": "2026-11-12",
+          "status": "purchased",
+          "note": "按报名名单分栏打印"
+        },
+        {
+          "id": "M10",
+          "category": "现场用品",
+          "name": "垃圾袋与清洁用品",
+          "spec": "大号垃圾袋 50 只",
+          "unit": "包",
+          "quantity": 1,
+          "unit_price_yuan": 12,
+          "subtotal_yuan": 12,
+          "purchase_channel": "大型超市",
+          "owner": "王宁",
+          "needed_by": "2026-11-13",
+          "status": "pending",
+          "note": "按 100 人规模预留两处垃圾点"
+        }
+      ],
+      "summary": {
+        "total_items": 10,
+        "total_quantity": 126,
+        "estimated_cost_yuan": 2306.97
+      }
+    },
+    "comment": "手动编辑"
+  },
+  "patchResponse": {
+    "status": 200,
+    "version": 2,
+    "item0": {
+      "id": "M1",
+      "category": "场地与设备",
+      "name": "音响与话筒租赁",
+      "spec": "双 15 寸音箱 + 无线麦",
+      "unit": "套",
+      "quantity": 3,
+      "unit_price_yuan": 360,
+      "subtotal_yuan": 1080,
+      "purchase_channel": "校内打印店",
+      "owner": "林晓",
+      "needed_by": "2026-11-09",
+      "status": "pending",
+      "note": "提前一天完成设备联调"
+    },
+    "summary": {
+      "total_items": 10,
+      "total_quantity": 126,
+      "estimated_cost_yuan": 2306.97
+    }
+  },
+  "after": {
+    "version": "v2",
+    "firstRow": {
+      "quantity": "3 套",
+      "unitPrice": "¥ 360.00",
+      "subtotal": "¥ 1,080.00"
+    },
+    "summaryValues": [
+      "10",
+      "126",
+      "¥ 2,306.97"
+    ],
+    "budgetTotals": {
+      "申请预算": "¥ 2,000.00",
+      "明细合计": "¥ 1,559.97",
+      "预备金": "¥ 160.00",
+      "计划合计": "¥ 1,719.97"
+    }
+  },
+  "serverDetail": {
+    "version": 2,
+    "item0": {
+      "id": "M1",
+      "category": "场地与设备",
+      "name": "音响与话筒租赁",
+      "spec": "双 15 寸音箱 + 无线麦",
+      "unit": "套",
+      "quantity": 3,
+      "unit_price_yuan": 360,
+      "subtotal_yuan": 1080,
+      "purchase_channel": "校内打印店",
+      "owner": "林晓",
+      "needed_by": "2026-11-09",
+      "status": "pending",
+      "note": "提前一天完成设备联调"
+    },
+    "summary": {
+      "total_items": 10,
+      "total_quantity": 126,
+      "estimated_cost_yuan": 2306.97
+    },
+    "budget": {
+      "items_total_yuan": 1559.97,
+      "planned_yuan": 1719.97,
+      "contingency_yuan": 160
+    }
+  },
+  "assertions": {
+    "quantityChanged": true,
+    "subtotalFromServer": true,
+    "summaryFromServer": true,
+    "versionIncremented": true,
+    "persisted": true,
+    "budgetItemsTotalUnchanged": true,
+    "budgetPlannedUnchanged": true
+  },
+  "note": "materials PATCH 只返回 materials.items 与 materials.summary；items_total_yuan / planned_yuan 属于 plan.budget，不会随物资编辑联动。"
+}

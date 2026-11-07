@@ -1,0 +1,173 @@
+{
+  "generatedAt": "2026-11-07T06:28:47.299Z",
+  "evidence": {
+    "backend": "D:\\code\\raungong2\\raungong-main\\backend",
+    "dbPath": "D:\\code\\raungong2\\docs\\test-runs\\2026-11-07\\evidence\\round2-backend.db",
+    "base": "http://127.0.0.1:8083",
+    "health": {
+      "status": "ok",
+      "service": "activity-mind",
+      "agent": {
+        "provider": "mock",
+        "configured": true
+      }
+    },
+    "username": "real_w60vtl440",
+    "registerStatus": 201,
+    "taskStatuses": {
+      "task1": "succeeded",
+      "task2": "succeeded"
+    },
+    "T17": {
+      "taskStatus1": "succeeded",
+      "taskStatus2": "succeeded",
+      "originalPlanId": "885eca04-c0f2-46d3-9998-62edd03e15ba",
+      "duplicateStatus": 201,
+      "duplicatePlanId": "193e2e59-29b5-4e5a-bd5f-ba2dbbf5d05a",
+      "newId": true,
+      "originalVersionBefore": 1,
+      "originalVersionAfter": 1,
+      "originalContentUnchanged": true,
+      "duplicateMatchesOriginal": true
+    },
+    "T18": {
+      "deleteStatus": 204,
+      "getAfterDelete": 404,
+      "inListBefore": true,
+      "inListAfter": false
+    },
+    "T01": {
+      "status": 409,
+      "body": {
+        "detail": "用户名已存在"
+      },
+      "hasStructuredCode": false
+    },
+    "T15": {
+      "status": 400,
+      "body": "{\"detail\":\"目前只支持 markdown\"}"
+    },
+    "results": [
+      {
+        "id": "T17",
+        "source": "16.2",
+        "status": "PASS",
+        "actual": "duplicate=201，新 ID=true，原方案 version 1->1，内容不变=true，副本内容一致=true",
+        "evidence": "evidence/interface-real-backend.json#T17",
+        "checks": {
+          "taskStatus1": "succeeded",
+          "taskStatus2": "succeeded",
+          "originalPlanId": "885eca04-c0f2-46d3-9998-62edd03e15ba",
+          "duplicateStatus": 201,
+          "duplicatePlanId": "193e2e59-29b5-4e5a-bd5f-ba2dbbf5d05a",
+          "newId": true,
+          "originalVersionBefore": 1,
+          "originalVersionAfter": 1,
+          "originalContentUnchanged": true,
+          "duplicateMatchesOriginal": true
+        }
+      },
+      {
+        "id": "T18",
+        "source": "16.2",
+        "status": "PASS",
+        "actual": "DELETE=204；删除后 GET=404；列表删除前包含=true，删除后包含=false",
+        "evidence": "evidence/interface-real-backend.json#T18",
+        "checks": {
+          "deleteStatus": 204,
+          "getAfterDelete": 404,
+          "inListBefore": true,
+          "inListAfter": false
+        }
+      },
+      {
+        "id": "T01-real",
+        "source": "16.2",
+        "status": "FAIL",
+        "actual": "重复注册=409，body={\"detail\":\"用户名已存在\"}，结构化错误码=false",
+        "evidence": "evidence/interface-real-backend.json#T01",
+        "checks": {
+          "status": 409,
+          "body": {
+            "detail": "用户名已存在"
+          },
+          "hasStructuredCode": false
+        }
+      },
+      {
+        "id": "T15-real",
+        "source": "16.2",
+        "status": "FAIL",
+        "actual": "export?format=pdf=400，body={\"detail\":\"目前只支持 markdown\"}",
+        "evidence": "evidence/interface-real-backend.json#T15",
+        "checks": {
+          "status": 400,
+          "body": "{\"detail\":\"目前只支持 markdown\"}",
+          "expected": 501,
+          "expectedCode": "PDF_NOT_ENABLED"
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "id": "T17",
+      "source": "16.2",
+      "status": "PASS",
+      "actual": "duplicate=201，新 ID=true，原方案 version 1->1，内容不变=true，副本内容一致=true",
+      "evidence": "evidence/interface-real-backend.json#T17",
+      "checks": {
+        "taskStatus1": "succeeded",
+        "taskStatus2": "succeeded",
+        "originalPlanId": "885eca04-c0f2-46d3-9998-62edd03e15ba",
+        "duplicateStatus": 201,
+        "duplicatePlanId": "193e2e59-29b5-4e5a-bd5f-ba2dbbf5d05a",
+        "newId": true,
+        "originalVersionBefore": 1,
+        "originalVersionAfter": 1,
+        "originalContentUnchanged": true,
+        "duplicateMatchesOriginal": true
+      }
+    },
+    {
+      "id": "T18",
+      "source": "16.2",
+      "status": "PASS",
+      "actual": "DELETE=204；删除后 GET=404；列表删除前包含=true，删除后包含=false",
+      "evidence": "evidence/interface-real-backend.json#T18",
+      "checks": {
+        "deleteStatus": 204,
+        "getAfterDelete": 404,
+        "inListBefore": true,
+        "inListAfter": false
+      }
+    },
+    {
+      "id": "T01-real",
+      "source": "16.2",
+      "status": "FAIL",
+      "actual": "重复注册=409，body={\"detail\":\"用户名已存在\"}，结构化错误码=false",
+      "evidence": "evidence/interface-real-backend.json#T01",
+      "checks": {
+        "status": 409,
+        "body": {
+          "detail": "用户名已存在"
+        },
+        "hasStructuredCode": false
+      }
+    },
+    {
+      "id": "T15-real",
+      "source": "16.2",
+      "status": "FAIL",
+      "actual": "export?format=pdf=400，body={\"detail\":\"目前只支持 markdown\"}",
+      "evidence": "evidence/interface-real-backend.json#T15",
+      "checks": {
+        "status": 400,
+        "body": "{\"detail\":\"目前只支持 markdown\"}",
+        "expected": 501,
+        "expectedCode": "PDF_NOT_ENABLED"
+      }
+    }
+  ]
+}
