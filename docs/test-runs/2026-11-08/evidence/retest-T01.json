@@ -1,0 +1,59 @@
+{
+  "startedAt": "2026-11-08T05:09:54.720Z",
+  "mock": {
+    "label": "devmock",
+    "base": "http://127.0.0.1:8082",
+    "username": "d1_mock_w7di94054",
+    "firstStatus": 201,
+    "duplicateStatus": 409,
+    "duplicateBody": {
+      "detail": {
+        "code": "USERNAME_TAKEN",
+        "message": "用户名已存在"
+      }
+    },
+    "code": "USERNAME_TAKEN",
+    "message": "用户名已存在",
+    "pass": true
+  },
+  "real": {
+    "label": "real-backend",
+    "base": "http://127.0.0.1:8083",
+    "username": "d1_real_w7dib3e90",
+    "firstStatus": 201,
+    "duplicateStatus": 409,
+    "duplicateBody": {
+      "detail": {
+        "code": "USERNAME_TAKEN",
+        "message": "用户名已存在"
+      }
+    },
+    "code": "USERNAME_TAKEN",
+    "message": "用户名已存在",
+    "pass": true
+  },
+  "ui": {
+    "username": "d1_ui_w7dic3d22",
+    "firstRegisterStatus": 201,
+    "duplicateStatus": 409,
+    "duplicateBody": {
+      "detail": {
+        "code": "USERNAME_TAKEN",
+        "message": "用户名已存在"
+      }
+    },
+    "serverError": "用户名已存在",
+    "screenshot": "screenshots/retest-T01-ui-duplicate.png",
+    "pass": true
+  },
+  "summary": "PASS",
+  "realHealth": {
+    "status": "ok",
+    "service": "activity-mind",
+    "agent": {
+      "provider": "mock",
+      "configured": true
+    }
+  },
+  "finishedAt": "2026-11-08T05:10:02.693Z"
+}

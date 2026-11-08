@@ -1,0 +1,122 @@
+D:\code\raungong2\raungong-main\backend\.venv\Lib\site-packages\langgraph\cache\base\__init__.py:8: LangChainPendingDeprecationWarning: The default value of `allowed_objects` will change in a future version. Pass an explicit value (e.g., allowed_objects='messages' or allowed_objects='core') to suppress this warning.
+  from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+INFO:     Started server process [282340]
+INFO:     Waiting for application startup.
+2026-11-08 13:09:57,122 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-08 13:09:57,122 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-11-08 13:09:57,122 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-11-08 13:09:57,125 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("users")
+2026-11-08 13:09:57,125 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-11-08 13:09:57,125 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("plans")
+2026-11-08 13:09:57,125 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-11-08 13:09:57,126 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("plans")
+2026-11-08 13:09:57,126 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-11-08 13:09:57,126 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("generation_tasks")
+2026-11-08 13:09:57,126 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-11-08 13:09:57,127 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("generation_tasks")
+2026-11-08 13:09:57,127 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-11-08 13:09:57,127 INFO sqlalchemy.engine.Engine 
+CREATE TABLE users (
+	id VARCHAR(36) NOT NULL, 
+	username VARCHAR(32) NOT NULL, 
+	password_hash VARCHAR(255) NOT NULL, 
+	display_name VARCHAR(50) NOT NULL, 
+	role VARCHAR(16) NOT NULL, 
+	created_at DATETIME NOT NULL, 
+	updated_at DATETIME NOT NULL, 
+	PRIMARY KEY (id)
+)
+
+
+2026-11-08 13:09:57,127 INFO sqlalchemy.engine.Engine [no key 0.00008s] ()
+2026-11-08 13:09:57,130 INFO sqlalchemy.engine.Engine CREATE UNIQUE INDEX ix_users_username ON users (username)
+2026-11-08 13:09:57,130 INFO sqlalchemy.engine.Engine [no key 0.00006s] ()
+2026-11-08 13:09:57,132 INFO sqlalchemy.engine.Engine 
+CREATE TABLE plans (
+	id VARCHAR(36) NOT NULL, 
+	user_id VARCHAR(36) NOT NULL, 
+	title VARCHAR(120) NOT NULL, 
+	status VARCHAR(16) NOT NULL, 
+	version INTEGER NOT NULL, 
+	theme VARCHAR(120) NOT NULL, 
+	activity_type VARCHAR(32) NOT NULL, 
+	participants INTEGER NOT NULL, 
+	budget_fen INTEGER NOT NULL, 
+	starts_at DATETIME NOT NULL, 
+	duration_minutes INTEGER NOT NULL, 
+	location VARCHAR(120) NOT NULL, 
+	input_json JSON NOT NULL, 
+	content_json JSON, 
+	summary VARCHAR(300), 
+	degraded BOOLEAN NOT NULL, 
+	deleted_at DATETIME, 
+	created_at DATETIME NOT NULL, 
+	updated_at DATETIME NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2026-11-08 13:09:57,133 INFO sqlalchemy.engine.Engine [no key 0.00007s] ()
+2026-11-08 13:09:57,135 INFO sqlalchemy.engine.Engine CREATE INDEX ix_plans_status ON plans (status)
+2026-11-08 13:09:57,135 INFO sqlalchemy.engine.Engine [no key 0.00008s] ()
+2026-11-08 13:09:57,137 INFO sqlalchemy.engine.Engine CREATE INDEX ix_plans_user_id ON plans (user_id)
+2026-11-08 13:09:57,137 INFO sqlalchemy.engine.Engine [no key 0.00010s] ()
+2026-11-08 13:09:57,140 INFO sqlalchemy.engine.Engine 
+CREATE TABLE generation_tasks (
+	id VARCHAR(36) NOT NULL, 
+	plan_id VARCHAR(36) NOT NULL, 
+	user_id VARCHAR(36) NOT NULL, 
+	type VARCHAR(16) NOT NULL, 
+	section_key VARCHAR(16), 
+	status VARCHAR(16) NOT NULL, 
+	stage VARCHAR(24), 
+	progress INTEGER NOT NULL, 
+	instruction TEXT, 
+	idempotency_key VARCHAR(64), 
+	attempt INTEGER NOT NULL, 
+	error_code VARCHAR(48), 
+	error_message TEXT, 
+	created_at DATETIME NOT NULL, 
+	started_at DATETIME, 
+	finished_at DATETIME, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(plan_id) REFERENCES plans (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id), 
+	UNIQUE (idempotency_key)
+)
+
+
+2026-11-08 13:09:57,140 INFO sqlalchemy.engine.Engine [no key 0.00009s] ()
+2026-11-08 13:09:57,142 INFO sqlalchemy.engine.Engine CREATE INDEX ix_generation_tasks_user_id ON generation_tasks (user_id)
+2026-11-08 13:09:57,142 INFO sqlalchemy.engine.Engine [no key 0.00007s] ()
+2026-11-08 13:09:57,144 INFO sqlalchemy.engine.Engine CREATE INDEX ix_generation_tasks_plan_id ON generation_tasks (plan_id)
+2026-11-08 13:09:57,144 INFO sqlalchemy.engine.Engine [no key 0.00006s] ()
+2026-11-08 13:09:57,146 INFO sqlalchemy.engine.Engine CREATE INDEX ix_generation_tasks_status ON generation_tasks (status)
+2026-11-08 13:09:57,146 INFO sqlalchemy.engine.Engine [no key 0.00007s] ()
+2026-11-08 13:09:57,148 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8083 (Press CTRL+C to quit)
+INFO:     127.0.0.1:63935 - "GET /healthz HTTP/1.1" 200 OK
+2026-11-08 13:09:57,297 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-08 13:09:57,300 INFO sqlalchemy.engine.Engine SELECT users.id, users.username, users.password_hash, users.display_name, users.role, users.created_at, users.updated_at 
+FROM users 
+WHERE users.username = ?
+2026-11-08 13:09:57,300 INFO sqlalchemy.engine.Engine [generated in 0.00012s] ('d1_real_w7dib3e90',)
+2026-11-08 13:09:57,347 INFO sqlalchemy.engine.Engine INSERT INTO users (id, username, password_hash, display_name, role, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-11-08 13:09:57,347 INFO sqlalchemy.engine.Engine [generated in 0.00021s] ('33755767-8251-42d0-a7ee-736708c7894d', 'd1_real_w7dib3e90', '$argon2id$v=19$m=65536,t=3,p=4$m62UBl9VJZlsWhjoFk3b5g$rf+OvmcEOqknEmy+FveYWWVlPWKySyd7mF/AYF55K6c', 'D1¸´²â', 'user', '2026-11-08 05:09:57.347912', '2026-11-08 05:09:57.347912')
+2026-11-08 13:09:57,349 INFO sqlalchemy.engine.Engine COMMIT
+2026-11-08 13:09:57,353 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-08 13:09:57,354 INFO sqlalchemy.engine.Engine SELECT users.id, users.username, users.password_hash, users.display_name, users.role, users.created_at, users.updated_at 
+FROM users 
+WHERE users.id = ?
+2026-11-08 13:09:57,354 INFO sqlalchemy.engine.Engine [generated in 0.00012s] ('33755767-8251-42d0-a7ee-736708c7894d',)
+2026-11-08 13:09:57,356 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:63936 - "POST /api/v1/auth/register HTTP/1.1" 201 Created
+2026-11-08 13:09:57,359 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-11-08 13:09:57,359 INFO sqlalchemy.engine.Engine SELECT users.id, users.username, users.password_hash, users.display_name, users.role, users.created_at, users.updated_at 
+FROM users 
+WHERE users.username = ?
+2026-11-08 13:09:57,359 INFO sqlalchemy.engine.Engine [cached since 0.05949s ago] ('d1_real_w7dib3e90',)
+2026-11-08 13:09:57,360 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:63935 - "POST /api/v1/auth/register HTTP/1.1" 409 Conflict

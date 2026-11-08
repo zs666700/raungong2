@@ -1,0 +1,4 @@
+$ node devmock/server.mjs
+[mock] 活动智囊 Mock 后端已启动：http://127.0.0.1:8082
+[mock] 健康检查：http://127.0.0.1:8082/healthz
+[mock] 数据保存在内存中，重启即清空。

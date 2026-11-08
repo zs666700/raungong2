@@ -1,0 +1,49 @@
+{
+  "startedAt": "2026-11-08T05:08:56.140Z",
+  "mock": {
+    "label": "devmock",
+    "base": "http://127.0.0.1:8082",
+    "username": "d1_mock_w7dgzws27",
+    "firstStatus": 201,
+    "duplicateStatus": 409,
+    "duplicateBody": {
+      "detail": {
+        "code": "USERNAME_TAKEN",
+        "message": "用户名已存在"
+      }
+    },
+    "code": "USERNAME_TAKEN",
+    "message": "用户名已存在",
+    "pass": true
+  },
+  "real": {
+    "label": "real-backend",
+    "base": "http://127.0.0.1:8083",
+    "username": "d1_real_w7dh35961",
+    "firstStatus": 201,
+    "duplicateStatus": 409,
+    "duplicateBody": {
+      "detail": {
+        "code": "USERNAME_TAKEN",
+        "message": "用户名已存在"
+      }
+    },
+    "code": "USERNAME_TAKEN",
+    "message": "用户名已存在",
+    "pass": true
+  },
+  "ui": {
+    "error": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:5173/login\", waiting until \"networkidle\"\u001b[22m\n",
+    "pass": false
+  },
+  "summary": "FAIL",
+  "realHealth": {
+    "status": "ok",
+    "service": "activity-mind",
+    "agent": {
+      "provider": "mock",
+      "configured": true
+    }
+  },
+  "finishedAt": "2026-11-08T05:09:32.088Z"
+}
